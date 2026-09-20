@@ -24,6 +24,10 @@ jobs:
         with:
           repository: onenamocom-stack/namoApp
           ref: main
+          # namoApp is private; the workflow's own GITHUB_TOKEN cannot see
+          # it. A fine-grained PAT with contents:read on namoApp lives in
+          # this secret.
+          token: ${{ secrets.SOURCE_REPO_PAT }}
       - uses: actions/setup-node@v7
         with:
           node-version: 22
