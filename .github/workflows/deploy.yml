@@ -44,6 +44,9 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          # Served from a project page (…github.io/namo-pro/), not a domain
+          # apex — assets must be referenced under /namo-pro/.
+          DEPLOY_BASE: /namo-pro/
       # The seeker build carries a CNAME for 1namo.com; publishing it here
       # too would make two Pages sites claim the same custom domain. This
       # site serves only from the github.io hostname.
